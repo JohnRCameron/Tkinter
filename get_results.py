@@ -8,7 +8,8 @@ from bs4 import BeautifulSoup
 import csv
 
 # URL of the archive page
-url = "https://www.lottology.com/europe/euromillions/past-draws-archive/?as=TXT&year="
+url = "https://www.euro-millions.com/results-history-?as=TXT&year="
+#https://www.euro-millions.com/results-history-2004
 
 # Destination folder to download the results to
 folder_path = r"C:\Users\johnc\OneDrive\Documents\Python\Tkinter\euromillions_archive"
@@ -20,7 +21,7 @@ with open(file_path, mode='w', newline='') as csv_file:
     writer.writerow(["Date", "Numbers", "Stars"])
 
     # Loop through all years from 2007 to current year
-    for year in range(2007, 2024):
+    for year in range(2004, 2024):
         # Get the HTML content of the archive page for the current year
         response = requests.get(url + str(year))
         soup = BeautifulSoup(response.content, 'html.parser')
